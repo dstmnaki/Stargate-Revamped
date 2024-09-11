@@ -557,6 +557,7 @@ if(first()){
                     Sound:parentTo(entity())
                     Sound:play()
                 }
+                dsSend(DHDEnt:id()+"_return","stargate-naki",table(entity(),0))
                 resetData()
             break
             case entity():id()+"_close",
@@ -574,6 +575,7 @@ if(first()){
                     Sound:play()
                 }
                 dsSend(DialedAddress+"_close","stargate-naki",table(Address,entity(),Name))
+                dsSend(DHDEnt:id()+"_return","stargate-naki",table(entity(),0))
                 resetData()
             break
             case Address+"_connect",
@@ -662,8 +664,8 @@ if(first()){
         Door2=GetTargetEntity
         
         foreach(I,E:entity=players()){
-            if((E:pos()+vec(0,0,E:height()/2)):distance(Door1:pos())<45){
-                if(Door1:toWorld(vec(0,100,0)):canSee(E)){
+            if((E:pos()+vec(0,0,E:height()/2)):distance(Door1:toWorld(vec(0,25,0)))<45){
+                if(Door1:toWorld(vec(0,250,0)):canSee(E)){
                     E:plySetAng((Door2:right()):toAngle())
                     E:plySetPos(Door2:toWorld(vec(0,-5,-15)+Door1:toLocal(E:pos()):setZ(0)))
                     stoptimer("close")
