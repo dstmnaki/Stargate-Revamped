@@ -1,4 +1,4 @@
-@name Naki's Stargates V7.0 - DHD
+@name Naki's Stargates V8.0 - DHD
 @inputs TextEntry:string Dial
 @persist Address:string TargetEnt:entity Open
 @outputs Address:string TargetEnt:entity Open
