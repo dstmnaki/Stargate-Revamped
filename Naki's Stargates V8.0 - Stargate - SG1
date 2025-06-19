@@ -19,7 +19,7 @@ if(first()){
     
     entity():setAlpha(0)
     
-    Address = "bzejkca"
+    Address = "tower17"
     
     Cur=1
     
@@ -471,9 +471,6 @@ if(first()){
             break
             
             case Address+"_close",
-                #[dsSend(DHDEnt:id()+"_reset","stargate-naki",table(entity(),Address))
-                dsSend(DialedAddress+"_close","stargate-naki",table(Address,entity(),Name))
-                #print(DialedAddress+"_close")]#
                 if(Sound:isValid()){
                     Sound:destroy()
                 }
@@ -488,9 +485,6 @@ if(first()){
                 resetData()
             break
             case entity():id()+"_close",
-                #[dsSend(DHDEnt:id()+"_reset","stargate-naki",table(entity(),Address))
-                dsSend(DialedAddress+"_close","stargate-naki",table(Address,entity(),Name))
-                #print(DialedAddress+"_close")]#
                 if(Sound:isValid()){
                     Sound:destroy()
                 }
