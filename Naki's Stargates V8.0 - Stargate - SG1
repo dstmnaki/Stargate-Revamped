@@ -1,4 +1,4 @@
-@name Naki's Stargates V7.0 - Stargate - SG1
+@name Naki's Stargates V8.0 - Stargate - SG1
 @inputs Glyph:entity
 @persist [Address Name]:string [Mat_Base Mat_Base_Symbols Mat_Chevron]:string [Color_Base Color_Base_Symbols Chev_Color_On Chev_Color_Off]:vector Width_Chevron1 Width_Chevron2 Width_Base Width Size 
 @persist SpeedSpawn Ang Flip Rotate WantedGlyph [DialedGlyphs]:array Cur CurGlyph Encode Open DialedAddress:string Called [GetTargetEntity DHDEnt]:entity Exists
@@ -6,6 +6,7 @@
 @persist V V2 Error Block Val Switch Iris
 @model models/sprops/geometry/fdisc_132.mdl
 #include "glyph_repository"
+#include "stargate_functions"
 
 if(dupefinished()){reset()}
 if(first()){
@@ -598,18 +599,8 @@ if(first()){
                     timer("close",5000)
                 }
             }
-            #[if((E:pos()+vec(0,0,E:height()/2)):distance(Door2:pos())<45){
-                if(Door2:toWorld(vec(0,100,0)):canSee(E)){
-                    E:plySetAng((Door1:right()):toAngle())
-                    E:plySetPos(Door1:toWorld(vec(0,-5,-15)+Door2:toLocal(E:pos()):setZ(0)))
-                }
-            }]#
         }
     }
-    if(changed(Open)&!Open){
-        voidData()
-    }
-    
 }
 if(clk("rotate")){
     Rotate=1
