@@ -49,10 +49,29 @@ function encodeGlyph(GetGlyph){
 }
 
 function resetData(){
-    Switch=Val=Called=Encode=Open=Exists=Rotate=Flip=0
-    Cur=1
-    DialedGlyphs=array()
-    DialedAddress=GetAddress=CallingAddress=""
+    # Stop visual FX
+    holoAlpha(70, 0)          # Wormhole FX hidden
+    holoScale(71, vec(0))     # Iris/kawoosh shut
+
+    # Stop any sounds
+    if(Sound:isValid()){ Sound:destroy() }
+    if(Roll:isValid()){ Roll:destroy() }
+
+    # Reset vars
+    Switch = 0
+    Val = 0
+    Called = 0
+    Encode = 0
+    Open = 0
+    Exists = 0
+    Rotate = 0
+    Flip = 0
+    Cur = 1
+
+    DialedGlyphs = array()
+    DialedAddress = ""
+    GetAddress = ""
+    CallingAddress = ""
 }
 
 function openGate(GetAddress:string){
@@ -71,6 +90,4 @@ function dial(){
     #if(!Called){
         timer("rotate",100)
     #}
-}
-function void voidData(){
 }
