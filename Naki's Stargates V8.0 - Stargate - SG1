@@ -446,7 +446,7 @@ if(first()){
                 CallingGateEntity=DsGetData[2,entity]
                 CallingName=DsGetData[3,string]
                 if(CallingAddress==Address){
-                    dsSend(CallingAddress+"_exists","stargate-naki",table(Address,entity(),Name))
+                    dsSendDirect(CallingAddress+"_exists",CallingGateEntity,table(Address,entity(),Name))
                 }
             break
             
@@ -457,7 +457,7 @@ if(first()){
                 CallingName=DsGetData[3,string]
                 if((CallingAddress!=Address)){
                     if(!Open){
-                        dsSend(CallingAddress+"_connect","stargate-naki",table(Address,entity(),Name))
+                        dsSendDirect(CallingAddress+"_connect",CallingGateEntity,table(Address,entity(),Name))
                         Called=1
                         openGate(CallingAddress)
                         GetTargetEntity=DsGetData[2,entity]
@@ -495,7 +495,7 @@ if(first()){
                     Sound:parentTo(entity())
                     Sound:play()
                 }
-                dsSend(DialedAddress+"_close","stargate-naki",table(Address,entity(),Name))
+                dsSendDirect(DialedAddress+"_close",dsGetTable()[2,entity],table(Address,entity(),Name))
                 dsSend(DHDEnt:id()+"_return","stargate-naki",table(entity(),0))
                 resetData()
             break
