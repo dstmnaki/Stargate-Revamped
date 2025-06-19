@@ -26,8 +26,6 @@ if(first()){
     #Name of the gate
     Name = "SGC"
     
-    setName(Name+": "+Address)
-    
     dsSend(Address+"_check_exists","stargate-naki",table(Address,entity()))
     
     if(Address:explode(""):count()>9){
